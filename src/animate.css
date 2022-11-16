@@ -1,0 +1,42 @@
+@keyframes landload{
+    from{width: 0vw;}
+    to{width: 100vw;}
+}
+@keyframes landtext{
+    from{opacity: 0; font-size: 0%;}
+    to{opacity: 1; font-size: 100%;}
+}
+@keyframes smooth-load{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes event-load {
+    from{width: 0;}
+    to{width: inherit;}
+}
+@keyframes text{
+    0%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes imgshow {
+    0%{
+        opacity: 0;
+    }
+    70%{
+        opacity: 0;
+    }
+    71%{
+        opacity: 1;
+    }
+  
+    100%{
+        opacity: 1;
+    }
+}

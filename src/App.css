@@ -1,38 +1,363 @@
-.App {
-  text-align: center;
+@import url('./animate.css');
+@font-face {
+  font-family: 'metropolis';
+  src: url('./font/metropolis.semi-bold.otf');
+}
+@font-face{
+  font-family: "cure";
+  src:url("./font/Parisienne-Regular.ttf");
+}
+@font-face{
+  font-family: "cure1";
+  src:url("./font/cc.ttf");
+}
+@font-face{
+  font-family: "cure2";
+  src:url("./font/cg.ttf");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  font-family: 'metropolis',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow: hidden;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+p{
+  margin: 0.5em;
+}
+.landing{
+  height: 100vh;
+  width: 100vw;
+  background: url('./img/carnival.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  animation: landload 2s ease-in;
+}
+.landingwrap{
+  display: block;
+  text-align: center;
+  opacity: 0;
+  animation: landtext 2s ease-in 2s forwards;
+}
+.welcome-text{
+  font-size: 60px;
+  font-weight: 500;
+  color: #f4f4f2;
+}
+.title-text{
+  margin: -10px auto 275px;
+  font-size: 150px;
+  font-weight: 600;
+  font-style: italic;
+  color: #f4f4f2;
+}
+.namebar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
 }
 
-.App-link {
-  color: #61dafb;
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #414141;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #000000;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1.2rem;
+  color: #181818;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #414141, #181818);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #181818;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}
+
+.schedule{
+  background: url('./img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  animation: smooth-load 1.5s ease-in 0s forwards;
+}
+.specialEvent{
+  position: absolute;
+  transform: translate(0, -150%);
+    padding: 0 calc(50% - 90px) 0;
+}
+.eventswrap{
+  width: 0;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: event-load 1.5s ease 1.75s forwards;
+}
+.events{
+  width: 125px;
+  height: 125px;
+  margin: 100px 25px 0 25px;
+  border: 4px rgb(255, 255, 255) solid;
+}
+.events:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+.eventPlace{
+  font-family: inherit;
+  font-size: 21px;
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+  text-shadow: 0 0 2px #ffe600, 0 0 3px #ff0000;
+}
+
+.border{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh!important;
+  padding: auto;
+  height: 90vh;
+  width: 90vw;
+  border: 3px solid #fe7f9c;
+}
+.flower1{
+  position: absolute;
+  top: -10vh;
+  right: -10vw;
+}
+.flower1 img{
+  width: 500px;
+  height: 450px;
+}
+.flower2{
+  position: absolute;
+  bottom: -10vh;
+  left: -10vw;
+}
+.flower2 img{
+  transform: rotate(180deg);
+  width: 500px;
+  height: 450px;
+}
+.to{
+  position: absolute;
+  top: 4vh;
+  left: 6vw;
+  color:#ff3a68;
+  font-size: 96px;
+  font-family: 'cure';
+}
+.text{
+  position: relative;
+  display: flex;
+  margin: auto;
+  height: 90vh;
+  width: 90vw;
+}
+.text-1, .text-2, .text-3, .text-4{
+  position: absolute;
+  top: 40vh;
+  left: 45vw;
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  text-align: center;
+  font-size: 36px;
+}
+.text-1{
+  animation: showup 3s;
+  animation-delay: 0s;
+}
+.text-2{
+  animation: showup 8s;
+  animation-delay: 3.5s;
+}
+.text-3{
+  animation: showup 6s;
+  animation-delay: 12s;
+}
+.text-4{
+  animation: showup 6s;
+  animation-delay: 18.5s;
+}
+@keyframes showup{
+  10%{
+      opacity: 1;
   }
-  to {
-    transform: rotate(360deg);
+  90%{
+      opacity: 1;
   }
+  100%{
+      opacity: 0;
+  }
+}
+.image{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  animation: imgshow 35s;
+}
+.image img{
+  height: 50vh;
+}
+
+.text-5{
+  position: absolute;
+  top: 35vh;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-family: 'cure1';
+  font-size: 144px;
+  font-style: italic;
+  letter-spacing: 4px;
+  color: #ff2626;
+  text-shadow: 1px 1px rgb(255, 255, 255);
+  animation: text 35s;
+}
+.footer{
+  position: relative;
+  width: 100vw;
+  display: flex;
+  bottom: 10vh;
+  font-family: 'cure2';
+  font-size: 18px;
+}
+.footer p{
+  text-align: center;
+  margin: auto;
+}
+.mobile-view{
+  display: none;
+}
+
+@media all and (max-width: 1440px) {
+  .text-5{
+      font-size: 96px;
+  }
+  .to{
+      font-size: 72px;
+  }
+  .text{
+      font-size: 54px;
+  }
+  .flower1 img{
+      width: 350px;
+      height: 300px;
+  }
+  .flower2 img{
+      width: 350px;
+      height: 300px;
+  }
+}
+@media all and (max-width: 1368px) {
+  .to{
+      font-size: 72px;
+  }
+  .text{
+      font-size: 54px;
+  }
+  .flower1 img{
+      width: 350px;
+      height: 300px;
+  }
+  .flower2 img{
+      width: 350px;
+      height: 300px;
+  }
+}
+
+@media all and (max-width:1240px) {
+  .mobile-view{
+      display: block;
+      font-size: 60px;
+      line-height: 66px;
+      padding: 10px;
+  }
+  .border, .image, .message, .footer{
+      display: none;
+  }
+}
+
+.eventpage{
+  z-index: -2;
+  background-color: #f5f5f5;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.eventbackground{
+  position: relative;
+  width: 98vw;
+  height: 95vh;
+}
+
+.randombox{
+  width: 98vw;
+  height: 95vh;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.075);
+  border-radius: 0px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(.1px);
+  -webkit-backdrop-filter: blur(.1px);
+}
+.message{
+  position: absolute;
+  color: #fff;
+  font-size: 24px;
+}
+#eventSong{
+  position: absolute;
 }
